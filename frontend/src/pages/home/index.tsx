@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import useGames, { Game } from '../../services/useGame';
 import { filterGamesById } from '../../services/useSearch';
 import { useState, useEffect } from 'react';
-import SearchCard from '../Search';
+import SearchCard from '../../components/Search';
 
 const Container = styled.div`
     display: flex;

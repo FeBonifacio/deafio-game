@@ -1,13 +1,25 @@
+// Arquivo App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importe BrowserRouter e Routes
 import "./global.css";
-import CardGames from "./components/Card";
+import CardGames from "./pages/home";
 import Header from "./components/Header";
+import CreateGamePage from "./pages/create/index";
+import EditGamePage from './pages/edit';
 
 function App() {
   return (
-    <div>
-      <Header />
-      <CardGames />
-    </div>
+    <>
+      <Router>
+        <Header />
+        <Routes> 
+          <Route path="/" element={<CardGames />} />  
+          <Route path="/create" element={<CreateGamePage />} /> 
+          <Route path="/edit" element={<EditGamePage />} />
+        </Routes> 
+      </Router>
+      {/* <CardGames /> */}
+    </>
   );
 }
 
