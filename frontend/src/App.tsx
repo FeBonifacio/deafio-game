@@ -1,4 +1,4 @@
-
+import "./global.css";
 import CardGames from "./components/Card";
 import Header from "./components/Header";
 

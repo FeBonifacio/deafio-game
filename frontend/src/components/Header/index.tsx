@@ -1,29 +1,33 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const ContainerDiv = styled.div`
     background-color: #000;
-    padding-top: 10px;
     color: white;
-    border-radius: 3px;
+    width: 100%;
 
     .row {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr auto;
         align-items: center;
-        
+        padding: 10px;
+        width: 100%;
     }
 
     .col-btn {
-        margin-left: auto; /* Isso empurra os botões para a direita */
+        text-align: right;
     }
-`
+
+    .col-btn button {
+        margin-right: 5px; 
+    }
+`;
 
 const Header = () => {
     return (
-        <ContainerDiv className="container">
+        <ContainerDiv>
             <div className="row">
                 <div className="col text-start">
-                    <h1>GAMES EM NOVIDADE</h1>
+                    <h1>GAMES</h1>
                 </div>
                 <div className="col-btn text-end">
                     <button className="btn btn-secondary">CRIAR</button>
