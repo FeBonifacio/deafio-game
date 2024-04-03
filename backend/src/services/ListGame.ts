@@ -1,15 +1,16 @@
+import { Router, Request, Response, NextFunction } from 'express';
 import axios from 'axios';
-import { Router, Request, Response } from 'express';
 
+const router = Router();
 
-async function listGame(req: Request, res: Response) {
+router.get('/', async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const newGame = req.body;
-        const response = await axios.get('https://academico.espm.br/testeapi/jogos', newGame);
-        res.status(201).json(response.data);
+        const response = await axios.get('https://academico.espm.br/testeapi/jogo');
+        res.json(response.data);
     } catch (error) {
-        res.status(500).json({ error: 'Erro ao acessar a API' });
+        console.error('Erro ao acessar a API externa:', error);
+        res.status(500).json({ error: 'Erro ao acessar a API externa' });
     }
-}
+});
 
-export { listGame };
+export default router;
