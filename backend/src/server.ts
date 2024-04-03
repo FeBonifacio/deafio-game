@@ -2,7 +2,9 @@ import express, { Request, Response, NextFunction } from 'express'
 import 'express-async-errors';
 import cors from 'cors';
 
-import { router } from './routes'
+import { router } from './router';
+
+
 
 const app = express();
 app.use(express.json());
@@ -25,6 +27,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     })
 
 })
+
 
 
 app.listen(3000, () => {
