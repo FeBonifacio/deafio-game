@@ -1,5 +1,5 @@
 import React from 'react';
-import { Game } from '../types/game'; 
+import { Game } from '../types/game';
 
 export const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, field: keyof Game, editedGame: Game | null, setEditedGame: React.Dispatch<React.SetStateAction<Game | null>>) => {
     if (editedGame) {
@@ -7,12 +7,10 @@ export const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, field:
     }
 };
 
-export const handleSaveAndClose = async (handleSaveEdit: () => Promise<void>, setIsLoading: React.Dispatch<React.SetStateAction<boolean>>, handleCloseModal: () => void) => {
-    setIsLoading(true); 
-    await handleSaveEdit();
-    setIsLoading(false); 
-    handleCloseModal(); 
-    window.location.reload(); 
+export const handleSaveAndClose = (handleSaveEdit: Function, editedGame: Game | null, setIsLoading: React.Dispatch<React.SetStateAction<boolean>>, handleCloseModal: Function) => {
+    // Função para salvar as edições e fechar o modal
+    setIsLoading(true);
+    handleSaveEdit(editedGame);
+    setIsLoading(false);
+    handleCloseModal();
 };
-
-

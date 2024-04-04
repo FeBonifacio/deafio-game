@@ -8,6 +8,8 @@ import { TrashIcon } from '../../utils/icons/trash';
 import { useGameEdit } from '../../services/hooks/useEdit';
 import EditModal from '../../components/Modal'; // Importação corrigida
 import { Game } from '../../services/types/game';
+import { useFormValidation } from '../../utils/useFormValidation';
+import { handleSaveAndClose } from '../../services/hooks/useModal';
 
 const SeachInput = styled.div`
     width: 50%;
@@ -56,7 +58,7 @@ const EditGamePage = () => {
         setEditedGame(game);
         setShowModal(true);
     };
-
+    
     const handleCloseModal = () => {
         setShowModal(false);
     };
@@ -67,6 +69,7 @@ const EditGamePage = () => {
             setShowModal(false);
         }
     };
+
 
     return (
         <div>
