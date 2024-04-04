@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 import { useGameFilter } from '../../services/hooks/useSearch';
-import useGames from '../../services/hooks/useGame';
+import useGames from '../../services/rotas/Game';
 import SearchCard from '../../components/Search';
 import { EditIcon } from '../../utils/icons/edit';
 import { TrashIcon } from '../../utils/icons/trash';
-import { useGameEdit } from '../../services/hooks/useEdit';
+import { useGameEdit } from '../../services/rotas/Edit';
 import EditModal from '../../components/Modal';
 import { Game } from '../../services/types/game';
-import useGameDelete from '../../services/hooks/useDelete';
 import { Container, GameDetailsContainer, SeachInput } from './style';
-
+import ConfirmationModal from '../../components/Modal/confirmModel';
+import useHandleDeleteClick from '../../services/hooks/useDelete'; // Importe a função aqui
 
 const EditGamePage = () => {
     const games: Game[] = useGames();
     const { filteredGames, handleFilter } = useGameFilter(games);
     const { handleEdit } = useGameEdit(); 
-    const { handleDelete } = useGameDelete();
     const [showModal, setShowModal] = useState(false);
     const [editedGame, setEditedGame] = useState<Game | null>(null);
+    const { handleDeleteClick, handleConfirmDelete, showConfirmation } = useHandleDeleteClick();
+
+    const [gameToDelete, setGameToDelete] = useState<Game | null>(null);
 
     const handleEditClick = (game: Game) => {
         setEditedGame(game);
@@ -35,14 +37,11 @@ const EditGamePage = () => {
         }
     };
 
-    const handleDeleteClick = async (id: number) => {
-        try {
-            await handleDelete(id);
-            console.log("Exclusão concluída com sucesso.");
-        } catch (error) {
-            console.error('Erro ao excluir o jogo:', error);
-        }
+    const handleDelete = (game: Game) => {
+        setGameToDelete(game);
+        handleDeleteClick(game); 
     };
+
 
     return (
         <div>
@@ -57,7 +56,7 @@ const EditGamePage = () => {
                             <div className="card-body">
                                 <div className="buttons-container">
                                     <button className="btn btn-light" onClick={() => handleEditClick(filteredGames[0])}><EditIcon /></button>
-                                    <button className="btn btn-light" onClick={() => handleDeleteClick(filteredGames[0].id)}><TrashIcon /></button>
+                                    <button className="btn btn-light" onClick={() => handleDelete(filteredGames[0])}><TrashIcon /></button>
                                 </div>
                                 <div>
                                     <h3 className="card-title">{filteredGames[0].nome}</h3>
@@ -84,6 +83,13 @@ const EditGamePage = () => {
                 editedGame={editedGame} 
                 setEditedGame={setEditedGame} 
             />
+
+            <ConfirmationModal
+                show={!!gameToDelete}
+                handleClose={() => setGameToDelete(null)}
+                handleConfirm={handleConfirmDelete}
+                message="Tem certeza que deseja deletar este jogo?"
+                />
         </div>
     );
 }

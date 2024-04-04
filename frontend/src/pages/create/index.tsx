@@ -1,4 +1,4 @@
-import useCreateGame from '../../services/hooks/useCreate';
+import useCreateGame from '../../services/rotas/Create';
 import { useFormValidation } from '../../utils/useFormValidation.js'; // Correção no import
 import { ContainerDiv } from './style';
 
