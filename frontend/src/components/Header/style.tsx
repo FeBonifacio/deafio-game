@@ -13,11 +13,20 @@ export const ContainerDiv = styled.div`
         width: 100%;
     }
 
-    .col-btn {
-        text-align: right;
+    .btn {
+        margin-left: 5px;
     }
 
-    .col-btn button {
-        margin-right: 5px; 
+    .btn-custom {
+    background-color: #007bff; /* Azul profissional */
+    color: #ffffff; /* Texto branco */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Borda arredondada */
+    padding: 8px 16px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+    .btn-custom:hover {
+        background-color: #0056b3; /* Altera a cor quando hover */
     }
 `;

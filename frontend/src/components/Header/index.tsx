@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ContainerDiv } from './style';
+import { ControllerIcon } from '../../utils/icons/controller';
 
 
 
@@ -9,15 +10,15 @@ const Header = () => {
             <div className="row">
                 <div className="col text-start">
                     <Link to="/">
-                        <h1>GAMES</h1>
+                        <ControllerIcon />
                     </Link>
                 </div>
                 <div className="col-btn text-end">
                 <Link to="/create">
-                    <button className="btn btn-secondary">CRIAR</button>
+                    <button className="btn btn-custom">CRIAR</button>
                 </Link>
                 <Link to="/edit">
-                    <button className="btn btn-secondary">EDITAR / EXCLUIR</button>
+                    <button className="btn btn-custom">EDITAR / EXCLUIR</button>
                 </Link>
                 </div>
             </div>
