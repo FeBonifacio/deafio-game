@@ -18,7 +18,6 @@ function App() {
           <Route path="/edit" element={<EditGamePage />} />
         </Routes> 
       </Router>
-      {/* <CardGames /> */}
     </>
   );
 }

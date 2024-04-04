@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import useCreateGame from '../../services/useCreate';
+import useCreateGame from '../../services/hooks/useCreate';
 import { useFormValidation } from '../../utils/useFormValidation.js'; // Correção no import
 
 const ContainerDiv = styled.div`

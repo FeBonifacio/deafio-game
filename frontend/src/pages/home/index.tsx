@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import useGames, { Game } from '../../services/useGame';
-import { filterGamesById } from '../../services/useSearch';
-import { useState, useEffect } from 'react';
+import useGames from '../../services/hooks/useGame';
+import { useGameFilter  } from '../../services/hooks/useSearch';
 import SearchCard from '../../components/Search';
+import { Game } from '../../services/types/game';
 
 const Container = styled.div`
     display: flex;
@@ -34,16 +34,7 @@ const SeachInput = styled.div`
 const CardGames = () => {
     const games: Game[] = useGames();
 
-    const [filteredGames, setFilteredGames] = useState<Game[]>([]); // Estado para armazenar os jogos filtrados
-
-    useEffect(() => {
-        setFilteredGames(games); // Define os jogos filtrados para todos os jogos inicialmente
-    }, [games]);
-
-    const handleFilter = (searchTerm: string) => {
-        const filtered = filterGamesById(games, searchTerm); // Filtra os jogos com base no termo de pesquisa
-        setFilteredGames(filtered); // Atualiza os jogos filtrados
-    };
+    const { filteredGames, handleFilter } = useGameFilter(games);
 
     return (
         <>
