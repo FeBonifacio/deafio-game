@@ -1,10 +1,8 @@
-import styled from 'styled-components';
 import useCreateGame from '../../services/hooks/useCreate';
 import { useFormValidation } from '../../utils/useFormValidation.js'; // Correção no import
+import { ContainerDiv } from './style';
 
-const ContainerDiv = styled.div`
-    padding: 20px;
-`;
+
 
 const CreateGamePage = () => {
     const { formData, handleChange, handleSubmit } = useCreateGame();
