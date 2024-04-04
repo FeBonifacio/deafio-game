@@ -18,7 +18,7 @@ const Header = () => {
                     <button className="btn btn-custom">CRIAR</button>
                 </Link>
                 <Link to="/edit">
-                    <button className="btn btn-custom">EDITAR / EXCLUIR</button>
+                    <button className="btn btn-custom">EDITAR</button>
                 </Link>
                 </div>
             </div>

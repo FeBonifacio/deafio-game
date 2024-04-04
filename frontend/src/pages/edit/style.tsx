@@ -25,10 +25,22 @@ export const GameDetailsContainer = styled.div`
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        margin-bottom: 10px;
     }
 
     .buttons-container button {
         margin-right: 5px; 
+    }
+
+    .details-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; 
+        margin-bottom: 10px;
+    }
+
+    .details-wrapper .card-title {
+        margin-right: 10px; 
     }
 
     &:hover {

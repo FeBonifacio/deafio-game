@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import useGames from '../../services/rotas/Game';
 import { useGameFilter } from '../../services/hooks/useSearch';
 import SearchCard from '../../components/Search';
@@ -12,13 +11,13 @@ const CardGames = () => {
     return (
         <>
             <SeachInput>
-                <h1>Pesquise Por ID</h1>
+                <h1 className="text-secondary">Pesquise Por ID</h1>
                 <SearchCard handleFilter={handleFilter} />
             </SeachInput>
             <Container>
                 {filteredGames.length === 0 ? (
-                    <div className="text-center mt-3"> {/* Centraliza o conteúdo e adiciona margem superior */}
-                        <p className="mb-0">Crie algum jogo</p> {/* Adiciona margem inferior 0 para remover o espaço extra */}
+                    <div className="text-center mt-3"> 
+                        <h1 className="mb-0">Crie algum jogo</h1>
                     </div>
                 ) : (
                     filteredGames.map(game => (

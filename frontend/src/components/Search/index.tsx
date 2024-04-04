@@ -19,7 +19,7 @@ const SearchCard = ({ handleFilter }: Props) => {
         <div className="mb-3">
             <input
                 type="text"
-                className="form-control"
+                className="form-control bg-transparent text-white"
                 placeholder="..."
                 onChange={handleChange} 
             />

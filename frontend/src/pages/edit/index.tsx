@@ -5,7 +5,7 @@ import SearchCard from '../../components/Search';
 import { EditIcon } from '../../utils/icons/edit';
 import { TrashIcon } from '../../utils/icons/trash';
 import { useGameEdit } from '../../services/rotas/Edit';
-import EditModal from '../../components/Modal';
+import EditModal from '../../components/Modal/editModal';
 import { Game } from '../../services/types/game';
 import { Container, GameDetailsContainer, SeachInput } from './style';
 import ConfirmationModal from '../../components/Modal/confirmModel';
@@ -46,7 +46,7 @@ const EditGamePage = () => {
     return (
         <div>
             <SeachInput>
-                <h1>Pesquise Por ID para editar ou excluir</h1>
+                <h1 className="text-secondary">Pesquise Por ID</h1>
                 <SearchCard handleFilter={handleFilter} /> 
             </SeachInput>
             <Container>
@@ -58,9 +58,13 @@ const EditGamePage = () => {
                                     <button className="btn btn-light" onClick={() => handleEditClick(filteredGames[0])}><EditIcon /></button>
                                     <button className="btn btn-light" onClick={() => handleDelete(filteredGames[0])}><TrashIcon /></button>
                                 </div>
-                                <div>
-                                    <h3 className="card-title">{filteredGames[0].nome}</h3>
-                                    <h5 className="card-title">{filteredGames[0].id}</h5>
+                                <div className="details-wrapper">
+                                    <div>
+                                        <h3 className="card-title">{filteredGames[0].nome}</h3>
+                                    </div>
+                                    <div>
+                                        <h5 className="card-title">{filteredGames[0].id}</h5>
+                                    </div>
                                 </div>
                                 <p className="card-text">{filteredGames[0].descricao}</p>
                                 <ul className="list-group list-group-flush">
@@ -72,7 +76,7 @@ const EditGamePage = () => {
                         </div>
                     </GameDetailsContainer>
                 ) : (
-                    <p>Nenhum jogo encontrado.</p>
+                    <h1 className="mb-0">Nenhum jogo encontrado</h1>
                 )}
             </Container>
 

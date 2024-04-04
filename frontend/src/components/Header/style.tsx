@@ -18,15 +18,15 @@ export const ContainerDiv = styled.div`
     }
 
     .btn-custom {
-    background-color: #007bff; /* Azul profissional */
-    color: #ffffff; /* Texto branco */
-    border: none; /* Remove a borda */
-    border-radius: 5px; /* Borda arredondada */
-    padding: 8px 16px; /* Espaçamento interno */
-    font-size: 16px; /* Tamanho da fonte */
+    background-color: #007bff; 
+    color: #ffffff; 
+    border: none; 
+    border-radius: 5px;
+    padding: 8px 16px; 
+    font-size: 16px; 
 }
 
     .btn-custom:hover {
-        background-color: #0056b3; /* Altera a cor quando hover */
+        background-color: #0056b3;
     }
 `;
