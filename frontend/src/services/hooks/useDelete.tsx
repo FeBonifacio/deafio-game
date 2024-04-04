@@ -1,19 +1,37 @@
-import { useCallback } from 'react';
-import axios from 'axios';
+import { useCallback, useState } from 'react';
+import useGameDelete from '../rotas/Delete';
+import { Game } from '../../services/types/game';
 
-const useGameDelete = () => {
-    const handleDelete = useCallback(async (id: number) => {
-        try {
-            console.log('ID do jogo a ser excluído:', id); 
-            await axios.delete(`http://localhost:3000/jogo/${id}`);
-            console.log('Jogo excluído com sucesso.'); 
-            // Aqui você pode adicionar lógica adicional, se necessário
-        } catch (error) {
-            console.error('Erro ao excluir o jogo:', error);
-            throw new Error('Erro ao excluir o jogo');
-        }
+const useHandleDeleteClick = () => {
+    const [gameToDelete, setGameToDelete] = useState<Game | null>(null);
+    const [showConfirmation, setShowConfirmation] = useState(false);
+    const { handleDelete } = useGameDelete();
+
+    const handleDeleteClick = useCallback((game: Game) => {
+        setGameToDelete(game);
+        setShowConfirmation(true); 
     }, []);
-    return { handleDelete };
+
+    const handleConfirmDelete = useCallback(async () => {
+        if (gameToDelete) {
+            try {
+                await handleDelete(gameToDelete.id);
+                console.log("Exclusão concluída com sucesso.");
+                setGameToDelete(null);
+                setShowConfirmation(false); 
+                window.location.reload(); 
+            } catch (error) {
+                console.error('Erro ao excluir o jogo:', error);
+            }
+        }
+    }, [gameToDelete, handleDelete]);
+
+    const handleCancelDelete = useCallback(() => {
+        setGameToDelete(null);
+        setShowConfirmation(false);
+    }, []);
+
+    return { handleDeleteClick, handleConfirmDelete, handleCancelDelete, showConfirmation };
 };
 
-export default useGameDelete;
+export default useHandleDeleteClick;
