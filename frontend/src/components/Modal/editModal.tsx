@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { handleInputChange, handleSaveAndClose } from '../../services/hooks/useModal';
 import { EditModalProps } from '../../services/types/EditModal';
 import styled from 'styled-components';
+import { useFormValidation } from '../../utils/useFormValidation';
 
 const StyledModal = styled(Modal)`
     .modal-dialog {
@@ -29,6 +30,8 @@ const EditModal = ({ showModal, handleCloseModal, handleSaveEdit, editedGame, se
         window.location.reload();
     }
 
+    useFormValidation(handleSaveAndClose); 
+
     return (
         <StyledModal show={showModal} onHide={handleCloseModal} centered>
             <Modal.Header closeButton>
@@ -44,7 +47,6 @@ const EditModal = ({ showModal, handleCloseModal, handleSaveEdit, editedGame, se
                     </div>
                     <div className="mb-3">
                         <p style={{ width: '150px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>Descrição: {editedGame?.descricao}</p>
-                        {/* A entrada abaixo permite que a descrição seja editada */}
                         {editedGame && (
                             <input type="text" id="descricao" name="descricao" value={editedGame.descricao} onChange={(e) => handleInputChange(e, 'descricao', editedGame, setEditedGame)} />
                         )}

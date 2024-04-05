@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useGameFilter } from '../../services/hooks/useSearch';
 import useGames from '../../services/rotas/List';
 import SearchCard from '../../components/Search';

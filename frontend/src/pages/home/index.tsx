@@ -1,3 +1,4 @@
+import Loading from '../../components/Loader/index'; 
 import useGames from '../../services/rotas/List';
 import { useGameFilter } from '../../services/hooks/useSearch';
 import SearchCard from '../../components/Search';
@@ -15,10 +16,13 @@ const CardGames = () => {
                 <h1 className="text-light">Pesquise Por ID</h1>
                 <SearchCard handleFilter={handleFilter} />
             </SeachInput>
+            <div className="d-flex justify-content-center align-items-center"> 
+                <Loading />
+            </div>
             <Container>
                 {reversedGames.length === 0 ? (
                     <div className="text-center mt-3"> 
-                        <h1 className="mb-0 pt-5 text-black">Crie algum jogo</h1>
+                    <h1 className="mb-0 pt-5 text-black">Crie algum jogo</h1>
                     </div>
                 ) : (
                     reversedGames.map(game => (

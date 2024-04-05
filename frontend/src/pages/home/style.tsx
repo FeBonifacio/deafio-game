@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    min-height: 65vh;
+    min-height: 68vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -10,7 +10,6 @@ export const Container = styled.div`
     .card-body {
         height: 300px;
     }
-
 `;
 
 export const GameDetailsContainer = styled.div`
