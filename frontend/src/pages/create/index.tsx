@@ -28,26 +28,26 @@ const CreateGamePage = () => {
                     <p>Game foi criado com sucesso!</p>
                 </Alert>
             )}
-            <h1 className="text-secondary">Criar Novo Jogo</h1>
+            <h1 className="text-light">Criar Novo Jogo</h1>
             <form id="create-game-form" onSubmit={handleFormSubmit}>
                 <div className="mb-3">
-                    <label htmlFor="nome" className="text-secondary">Nome:</label>
+                    <label htmlFor="nome" className="text-light">Nome:</label>
                     <input type="text" className="form-control bg-transparent text-white" id="nome" name="nome" value={formData.nome} onChange={handleChange}/>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="descricao" className="text-secondary">Descrição:</label>
+                    <label htmlFor="descricao" className="text-light">Descrição:</label>
                     <input className="form-control bg-transparent text-white" id="descricao" name="descricao" style={{ resize: 'none' }}  value={formData.descricao} onChange={handleChange}/>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="produtora" className="text-secondary">Produtora:</label>
+                    <label htmlFor="produtora" className="text-light">Produtora:</label>
                     <input type="text" className="form-control bg-transparent text-white" id="produtora" name="produtora" value={formData.produtora} onChange={handleChange}/>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="ano" className="text-secondary">Ano:</label>
+                    <label htmlFor="ano" className="text-light">Ano:</label>
                     <input type="number" className="form-control bg-transparent text-white" id="ano" name="ano" value={formData.ano} onChange={handleChange} />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="idadeMinima" className="text-secondary">Idade Mínima:</label>
+                    <label htmlFor="idadeMinima" className="text-light">Idade Mínima:</label>
                     <input type="number" className="form-control bg-transparent text-white" id="idadeMinima" name="idadeMinima" value={formData.idadeMinima} onChange={handleChange} />
                 </div>
                 <div className="container d-flex justify-content-center align-items-center" >

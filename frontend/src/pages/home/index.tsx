@@ -1,3 +1,4 @@
+import React from 'react';
 import useGames from '../../services/rotas/Game';
 import { useGameFilter } from '../../services/hooks/useSearch';
 import SearchCard from '../../components/Search';
@@ -8,19 +9,21 @@ const CardGames = () => {
     const games: Game[] = useGames();
     const { filteredGames, handleFilter } = useGameFilter(games);
 
+    const reversedGames = [...filteredGames].reverse();
+
     return (
         <>
             <SeachInput>
-                <h1 className="text-secondary">Pesquise Por ID</h1>
+                <h1 className="text-light">Pesquise Por ID</h1>
                 <SearchCard handleFilter={handleFilter} />
             </SeachInput>
             <Container>
-                {filteredGames.length === 0 ? (
+                {reversedGames.length === 0 ? (
                     <div className="text-center mt-3"> 
-                        <h1 className="mb-0">Crie algum jogo</h1>
+                        <h1 className="mb-0 pt-5 text-black">Crie algum jogo</h1>
                     </div>
                 ) : (
-                    filteredGames.map(game => (
+                    reversedGames.map(game => (
                         <GameDetailsContainer key={game.id}>
                             <div className="card">
                                 <div className="card-body">

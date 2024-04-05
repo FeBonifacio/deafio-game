@@ -30,7 +30,7 @@ const EditGamePage = () => {
     return (
         <div>
             <SeachInput>
-                <h1 className="text-secondary">Pesquise Por ID</h1>
+                <h1 className="text-light">Pesquise Por ID</h1>
                 <SearchCard handleFilter={handleFilter} /> 
             </SeachInput>
             <Container>
@@ -60,7 +60,7 @@ const EditGamePage = () => {
                         </div>
                     </GameDetailsContainer>
                 ) : (
-                    <h1 className="mb-0">Nenhum jogo encontrado</h1>
+                    <h1 className="mb-0 pt-5 text-black">Nenhum jogo encontrado</h1>
                 )}
             </Container>
 

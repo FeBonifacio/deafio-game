@@ -12,10 +12,10 @@ html, body {
 }
 
 body {
-  background: radial-gradient(circle, #d8caca, #332b4b, #1e1519, #0c0b0b); 
+  background: radial-gradient(circle, #d8caca, #38207e, #141113, #0c0b0b); 
   background-repeat: no-repeat;
   background-size: cover;
-  animation: moveBackground 0.5s linear infinite;
+  animation: moveBackground 0.2s linear infinite;
   color: white;
 }
 
@@ -27,6 +27,7 @@ body {
     background-position: 100% 100%;
   }
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
