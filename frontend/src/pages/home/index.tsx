@@ -1,4 +1,3 @@
-import React from 'react';
 import useGames from '../../services/rotas/Game';
 import { useGameFilter } from '../../services/hooks/useSearch';
 import SearchCard from '../../components/Search';

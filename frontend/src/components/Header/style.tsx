@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerDiv = styled.div`
-    background-color: #000;
+    
     color: white;
     width: 100%;
 
@@ -15,10 +15,11 @@ export const ContainerDiv = styled.div`
 
     .btn {
         margin-left: 5px;
+        background-color: transparent;
     }
 
     .btn-custom {
-    background-color: #007bff; 
+    background-color: transparent; 
     color: #ffffff; 
     border: none; 
     border-radius: 5px;
