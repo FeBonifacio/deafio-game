@@ -1,12 +1,9 @@
 import styled from "styled-components";
 
 export const ContianerDiv = styled.div`
-    @media (max-width: 480px) {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        justify-content: center;
-        
+    height: 79.8vh;
+
+    @media (max-width: 480px) {        
         h1 {
             font-size: 25px;
         }

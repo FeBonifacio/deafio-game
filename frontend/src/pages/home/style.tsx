@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    max-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -20,7 +21,7 @@ export const GameDetailsContainer = styled.div`
     }
 
     @media (max-width: 425px) {
-        width: calc(100% - 20px); /* Largura total em dispositivos móveis */
+        width: calc(100% - 20px);
     }
 `;
 

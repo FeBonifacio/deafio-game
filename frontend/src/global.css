@@ -1,6 +1,6 @@
 html, body {
   height: 100%;
-  width: auto;
+  width: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -9,9 +9,6 @@ html, body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-body {
   background: radial-gradient(circle, #d8caca, #38207e, #141113, #0c0b0b); 
   background-repeat: no-repeat;
   background-size: cover;
@@ -27,7 +24,6 @@ body {
     background-position: 100% 100%;
   }
 }
-
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

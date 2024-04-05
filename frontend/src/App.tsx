@@ -6,6 +6,7 @@ import CardGames from "./pages/home";
 import Header from "./components/Header";
 import CreateGamePage from "./pages/create/index";
 import EditGamePage from './pages/edit';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/edit" element={<EditGamePage />} />
         </Routes> 
       </Router>
+      <Footer />
     </>
   );
 }

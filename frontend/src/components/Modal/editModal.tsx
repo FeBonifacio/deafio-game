@@ -1,8 +1,24 @@
-import {  useState } from 'react';
-import Modal from 'react-bootstrap/Modal';
+import React, { useState } from 'react';
+import { Modal } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import { handleInputChange, handleSaveAndClose } from '../../services/hooks/useModal';
 import { EditModalProps } from '../../services/types/EditModal';
+import styled from 'styled-components';
+
+const StyledModal = styled(Modal)`
+    @media (max-width: 800px) {
+        .modal-dialog {
+            max-width: 80%;
+            margin: auto;
+        }
+
+        /* .modal-dialog {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        } */
+    }
+`;
 
 const EditModal = ({ showModal, handleCloseModal, handleSaveEdit, editedGame, setEditedGame }: EditModalProps) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -12,7 +28,7 @@ const EditModal = ({ showModal, handleCloseModal, handleSaveEdit, editedGame, se
     }
 
     return (
-        <Modal show={showModal} onHide={handleCloseModal} centered>
+        <StyledModal show={showModal} onHide={handleCloseModal} centered>
             <Modal.Header closeButton>
                 <Modal.Title>Editar Jogo</Modal.Title>
             </Modal.Header>
@@ -62,7 +78,7 @@ const EditModal = ({ showModal, handleCloseModal, handleSaveEdit, editedGame, se
                         })}>Salvar Edição</Button>
                 )}
             </Modal.Footer>
-        </Modal>
+        </StyledModal>
     );
 }
 

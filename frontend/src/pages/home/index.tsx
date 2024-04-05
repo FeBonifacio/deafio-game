@@ -5,6 +5,8 @@ import SearchCard from '../../components/Search';
 import { Game } from '../../services/types/Game';
 import { CardTitleWrapper, Container, GameDetailsContainer, SeachInput } from './style';
 
+
+
 const CardGames = () => {
     const games: Game[] = useGames();
     const { filteredGames, handleFilter } = useGameFilter(games);
