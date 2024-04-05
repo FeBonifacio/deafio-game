@@ -1,4 +1,4 @@
-import useGames from '../../services/rotas/Game';
+import useGames from '../../services/rotas/List';
 import { useGameFilter } from '../../services/hooks/useSearch';
 import SearchCard from '../../components/Search';
 import { Game } from '../../services/types/Game';

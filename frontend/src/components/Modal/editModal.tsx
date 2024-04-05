@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 import { handleInputChange, handleSaveAndClose } from '../../services/hooks/useModal';
 import { EditModalProps } from '../../services/types/EditModal';
 import styled from 'styled-components';
+import { useFormValidation } from '../../utils/useFormValidation';
+
 
 const StyledModal = styled(Modal)`
     @media (max-width: 800px) {
@@ -11,12 +13,6 @@ const StyledModal = styled(Modal)`
             max-width: 80%;
             margin: auto;
         }
-
-        /* .modal-dialog {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        } */
     }
 `;
 
@@ -33,35 +29,35 @@ const EditModal = ({ showModal, handleCloseModal, handleSaveEdit, editedGame, se
                 <Modal.Title>Editar Jogo</Modal.Title>
             </Modal.Header>
             <Modal.Body className="d-flex flex-column align-items-center">
-                <form id="create-game-form">
+                <form id="create-game-form" >
                     <div className="mb-3">
                         <p>Nome: {editedGame?.nome}</p>
                         {editedGame && (
-                            <input type="text" value={editedGame.nome} onChange={(e) => handleInputChange(e, 'nome', editedGame, setEditedGame)} />
+                            <input type="text" id="nome" name="nome" value={editedGame.nome} onChange={(e) => handleInputChange(e, 'nome', editedGame, setEditedGame)} />
                         )}
                     </div>
                     <div className="mb-3">
                         <p>Descrição: {editedGame?.descricao}</p>
                         {editedGame && (
-                            <input type="text" value={editedGame.descricao} onChange={(e) => handleInputChange(e, 'descricao', editedGame, setEditedGame)} />
+                            <input type="text" id="descricao" name="descricao" value={editedGame.descricao} onChange={(e) => handleInputChange(e, 'descricao', editedGame, setEditedGame)} />
                         )}
                     </div>
                     <div className="mb-3">
                         <p>Produtora: {editedGame?.produtora}</p>
                         {editedGame && (
-                            <input type="text" value={editedGame.produtora} onChange={(e) => handleInputChange(e, 'produtora', editedGame, setEditedGame)} />
+                            <input type="text" id="produtora" name="produtora" value={editedGame.produtora} onChange={(e) => handleInputChange(e, 'produtora', editedGame, setEditedGame)} />
                         )}
                     </div>
                     <div className="mb-3">
                         <p>Ano: {editedGame?.ano}</p>
                         {editedGame && (
-                            <input type="text" value={editedGame.ano} onChange={(e) => handleInputChange(e, 'ano', editedGame, setEditedGame)} />
+                            <input type="text" id="ano" name="ano" value={editedGame.ano} onChange={(e) => handleInputChange(e, 'ano', editedGame, setEditedGame)} />
                         )}
                     </div>
                     <div className="mb-3">
                         <p>Idade Mínima: {editedGame?.idadeMinima}</p>
                         {editedGame && (
-                            <input type="text" value={editedGame.idadeMinima} onChange={(e) => handleInputChange(e, 'idadeMinima', editedGame, setEditedGame)} />
+                            <input type="text" id="idadeMinima" name="idadeMinima" value={editedGame.idadeMinima} onChange={(e) => handleInputChange(e, 'idadeMinima', editedGame, setEditedGame)} />
                         )}
                     </div>
                 </form>

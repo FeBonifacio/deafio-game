@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
 import { useGameFilter } from '../../services/hooks/useSearch';
-import useGames from '../../services/rotas/Game';
+import useGames from '../../services/rotas/List';
 import SearchCard from '../../components/Search';
 import { EditIcon } from '../../utils/icons/edit';
 import { TrashIcon } from '../../utils/icons/trash';
-import { useGameEdit } from '../../services/rotas/Edit';
 import EditModal from '../../components/Modal/editModal';
 import { Game } from '../../services/types/Game';
 import { Container, ContianerDiv, GameDetailsContainer, SeachInput } from './style';
 import ConfirmationModal from '../../components/Modal/confirmModel';
 import useHandleDeleteClick from '../../services/hooks/useDelete';
-import useEditGameFunctions from '../../services/hooks/useEdit'; // Importe o hook personalizado aqui
+import useEditGameFunctions from '../../services/hooks/useEdit'; 
 
 const EditGamePage = () => {
     const games: Game[] = useGames();
     const { filteredGames, handleFilter } = useGameFilter(games);
-    const { handleEdit } = useGameEdit(); 
-    const { showModal, editedGame, handleEditClick, handleCloseModal, handleSaveEdit, setEditedGame } = useEditGameFunctions(handleEdit);
+    const { showModal, editedGame, handleEditClick, handleCloseModal, handleSaveEdit, setEditedGame } = useEditGameFunctions();
 
     const { handleDeleteClick, handleConfirmDelete } = useHandleDeleteClick();
 
