@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Game } from '../types/game';
-
+import { Game } from '../types/Game';
 
 const useGames = () => {
     const [games, setGames] = useState<Game[]>([]);

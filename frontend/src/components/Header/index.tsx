@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 import { ContainerDiv } from './style';
 import { ControllerIcon } from '../../utils/icons/controller';
 
-
-
 const Header = () => {
     return (
         <ContainerDiv>

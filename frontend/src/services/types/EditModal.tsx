@@ -1,5 +1,4 @@
-import { Game } from "./game";
-
+import { Game } from "./Game";
 export interface EditModalProps {
     showModal: boolean;
     handleCloseModal: () => void;

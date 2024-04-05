@@ -1,12 +1,7 @@
-import { useState } from 'react';
 import axios from 'axios';
-import { Game } from '../types/game';
-
-
+import { Game } from '../types/Game';
 
 export const useGameEdit = () => {
-    const [editedGame, setEditedGame] = useState<Game | null>(null);
-
     const handleEdit = async (game: Game) => {
         try {
             const response = await axios.put(`http://localhost:3000/`, game);
@@ -21,9 +16,6 @@ export const useGameEdit = () => {
     };
 
     return {
-        editedGame,
-        setEditedGame,
         handleEdit
     };
 };
-

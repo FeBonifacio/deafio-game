@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import useGameDelete from '../rotas/Delete';
-import { Game } from '../../services/types/game';
+import { Game } from '../types/Game';
 
 const useHandleDeleteClick = () => {
     const [gameToDelete, setGameToDelete] = useState<Game | null>(null);
@@ -11,7 +11,7 @@ const useHandleDeleteClick = () => {
         setGameToDelete(game);
         setShowConfirmation(true); 
     }, []);
-
+    
     const handleConfirmDelete = useCallback(async () => {
         if (gameToDelete) {
             try {

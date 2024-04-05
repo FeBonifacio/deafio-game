@@ -1,13 +1,6 @@
-
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-
-interface ConfirmationModalProps {
-    show: boolean;
-    handleClose: () => void;
-    handleConfirm: () => void;
-    message: string;
-}
+import { ConfirmationModalProps } from '../../services/types/QuestModal';
 
 const ConfirmationModal = ({ show, handleClose, handleConfirm, message }: ConfirmationModalProps) => {
     return (

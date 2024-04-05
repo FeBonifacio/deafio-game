@@ -1,5 +1,5 @@
 import React from 'react';
-import { Game } from '../types/game';
+import { Game } from '../types/Game';
 
 export const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, field: keyof Game, editedGame: Game | null, setEditedGame: React.Dispatch<React.SetStateAction<Game | null>>) => {
     if (editedGame) {

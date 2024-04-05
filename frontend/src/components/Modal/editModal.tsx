@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { handleInputChange, handleSaveAndClose } from '../../services/hooks/useModal';
 import { EditModalProps } from '../../services/types/EditModal';
-
 
 const EditModal = ({ showModal, handleCloseModal, handleSaveEdit, editedGame, setEditedGame }: EditModalProps) => {
     const [isLoading, setIsLoading] = useState(false);

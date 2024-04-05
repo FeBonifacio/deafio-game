@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Game } from '../types/game';
-
+import { Game } from '../types/Game';
 
 export const filterGamesById = (games: Game[], searchTerm: string): Game[] => {
     if (searchTerm.trim() === "") {

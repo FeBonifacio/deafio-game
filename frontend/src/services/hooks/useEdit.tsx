@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Game } from '../../services/types/game';
+import { Game } from '../types/Game';
 
 const useEditGameFunctions = (handleEdit: (game: Game) => Promise<void>) => {
     const [showModal, setShowModal] = useState(false);
@@ -26,8 +26,9 @@ const useEditGameFunctions = (handleEdit: (game: Game) => Promise<void>) => {
         editedGame,
         handleEditClick,
         handleCloseModal,
-        handleSaveEdit
+        handleSaveEdit,
+        setEditedGame  
     };
 };
 
-export { useEditGameFunctions };
+export default useEditGameFunctions;

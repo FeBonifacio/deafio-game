@@ -1,18 +1,35 @@
+import React, { useState } from 'react';
 import useCreateGame from '../../services/rotas/Create';
+import { Alert } from 'react-bootstrap';
 import { useFormValidation } from '../../utils/useFormValidation.js'; // Correção no import
 import { ContainerDiv } from './style';
 
-
-
 const CreateGamePage = () => {
     const { formData, handleChange, handleSubmit } = useCreateGame();
-    
+    const [show, setShow] = useState(false);
+
     useFormValidation(handleSubmit); 
+
+    const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        try {
+            await handleSubmit(event);
+            setShow(true);
+        } catch (error) {
+            console.error('Erro ao criar o jogo:', error);
+        }
+    };
     
     return (
         <ContainerDiv className="container">
-            <h1 className="text-secondary" style={{ fontFamily: 'Roboto', fontSize: '3rem' }}>Criar Novo Jogo</h1>
-            <form id="create-game-form" onSubmit={handleSubmit}>
+            {show && (
+                <Alert className="alert alert-primary" role="alert" onClose={() => setShow(false)} dismissible>
+                    <p>Game foi criado com sucesso!</p>
+                </Alert>
+            )}
+            <h1 className="text-secondary">Criar Novo Jogo</h1>
+            <form id="create-game-form" onSubmit={handleFormSubmit}>
                 <div className="mb-3">
                     <label htmlFor="nome" className="text-secondary">Nome:</label>
                     <input type="text" className="form-control bg-transparent text-white" id="nome" name="nome" value={formData.nome} onChange={handleChange}/>
@@ -34,7 +51,11 @@ const CreateGamePage = () => {
                     <input type="number" className="form-control bg-transparent text-white" id="idadeMinima" name="idadeMinima" value={formData.idadeMinima} onChange={handleChange} />
                 </div>
                 <div className="container d-flex justify-content-center align-items-center" >
-                    <button type="submit" className="btn btn-primary" style={{ width: '200px', height: '50px' }}>
+                    <button 
+                        type="submit" 
+                        className="btn btn-primary" 
+                        style={{ width: '200px', height: '50px' }}
+                    >
                         Criar Jogo
                     </button>
                 </div>

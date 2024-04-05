@@ -1,7 +1,7 @@
 import useGames from '../../services/rotas/Game';
 import { useGameFilter } from '../../services/hooks/useSearch';
 import SearchCard from '../../components/Search';
-import { Game } from '../../services/types/game';
+import { Game } from '../../services/types/Game';
 import { CardTitleWrapper, Container, GameDetailsContainer, SeachInput } from './style';
 
 const CardGames = () => {

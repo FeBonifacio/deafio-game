@@ -2,7 +2,6 @@ import $ from 'jquery';
 import 'jquery-validation';
 import { useEffect } from 'react';
 
-// Exporte a função useFormValidation diretamente, sem usar export default
 export const useFormValidation = (handleSubmit) => {
     useEffect(() => {
         $('#create-game-form').validate({
