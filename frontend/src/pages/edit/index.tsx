@@ -7,7 +7,7 @@ import { TrashIcon } from '../../utils/icons/trash';
 import { useGameEdit } from '../../services/rotas/Edit';
 import EditModal from '../../components/Modal/editModal';
 import { Game } from '../../services/types/Game';
-import { Container, GameDetailsContainer, SeachInput } from './style';
+import { Container, ContianerDiv, GameDetailsContainer, SeachInput } from './style';
 import ConfirmationModal from '../../components/Modal/confirmModel';
 import useHandleDeleteClick from '../../services/hooks/useDelete';
 import useEditGameFunctions from '../../services/hooks/useEdit'; // Importe o hook personalizado aqui
@@ -28,7 +28,7 @@ const EditGamePage = () => {
     };
 
     return (
-        <div>
+        <ContianerDiv>
             <SeachInput>
                 <h1 className="text-light">Pesquise Por ID</h1>
                 <SearchCard handleFilter={handleFilter} /> 
@@ -60,7 +60,7 @@ const EditGamePage = () => {
                         </div>
                     </GameDetailsContainer>
                 ) : (
-                    <h1 className="mb-0 pt-5 text-black">Nenhum jogo encontrado</h1>
+                    <h2 className="mb-0 pt-5 text-black">Nenhum jogo encontrado</h2>
                 )}
             </Container>
 
@@ -78,7 +78,7 @@ const EditGamePage = () => {
                 handleConfirm={handleConfirmDelete}
                 message="Tem certeza que deseja deletar este jogo?"
                 />
-        </div>
+        </ContianerDiv>
     );
 }
 

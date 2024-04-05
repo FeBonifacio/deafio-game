@@ -1,6 +1,6 @@
 html, body {
   height: 100%;
-  width: 100%;
+  width: auto;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -15,7 +15,7 @@ body {
   background: radial-gradient(circle, #d8caca, #38207e, #141113, #0c0b0b); 
   background-repeat: no-repeat;
   background-size: cover;
-  animation: moveBackground 0.2s linear infinite;
+  animation: moveBackground 0.5s linear infinite;
   color: white;
 }
 

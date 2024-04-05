@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+export const ContianerDiv = styled.div`
+    @media (max-width: 480px) {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        
+        h1 {
+            font-size: 25px;
+        }
+    }
+`;
+
 export const SeachInput = styled.div`
     width: 50%;
     margin: 10px;
@@ -20,7 +33,11 @@ export const GameDetailsContainer = styled.div`
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
-    
+
+    @media (max-width: 460px) {
+        width: 300px;
+    }
+
     .buttons-container {
         display: flex;
         justify-content: flex-end;

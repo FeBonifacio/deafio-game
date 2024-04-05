@@ -14,6 +14,14 @@ export const GameDetailsContainer = styled.div`
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 906px) {
+        width: calc(50% - 20px);
+    }
+
+    @media (max-width: 425px) {
+        width: calc(100% - 20px); /* Largura total em dispositivos móveis */
+    }
 `;
 
 export const CardTitleWrapper = styled.div`
@@ -25,4 +33,13 @@ export const CardTitleWrapper = styled.div`
 export const SeachInput = styled.div`
     width: 50%;
     margin: 10px;
+    
+    @media (max-width: 500px) {
+        width: 50%;
+        text-align: center;
+
+        h1 {
+            font-size: 20px;
+        }
+    }
 `;
