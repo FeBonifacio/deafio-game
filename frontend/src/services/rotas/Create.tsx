@@ -11,7 +11,7 @@ const useCreateGame = () => {
         idadeMinima: '',
     });
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
             ...formData,
             [event.target.name]: event.target.value
@@ -33,8 +33,11 @@ const useCreateGame = () => {
                 idadeMinima: '',
             });
 
+            return { success: true };
+
         } catch (error) {
             console.error('Erro ao criar o jogo:', error);
+            return { success: false, error }
         }
     };
 

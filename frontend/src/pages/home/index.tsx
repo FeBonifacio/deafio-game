@@ -4,12 +4,9 @@ import SearchCard from '../../components/Search';
 import { Game } from '../../services/types/Game';
 import { CardTitleWrapper, Container, GameDetailsContainer, SeachInput } from './style';
 
-
-
 const CardGames = () => {
     const games: Game[] = useGames();
     const { filteredGames, handleFilter } = useGameFilter(games);
-
     const reversedGames = [...filteredGames].reverse();
 
     return (
@@ -32,7 +29,7 @@ const CardGames = () => {
                                         <h3 className="card-title">{game.nome}</h3>
                                         <h5 className="card-title">{game.id}</h5>
                                     </CardTitleWrapper>
-                                    <p className="card-text">{game.descricao}</p>
+                                    <p className="card-text">Descrição: {game.descricao}</p>
                                     <ul className="list-group list-group-flush">
                                         <li className="list-group-item">Produtora: {game.produtora}</li>
                                         <li className="list-group-item">Ano: {game.ano}</li>

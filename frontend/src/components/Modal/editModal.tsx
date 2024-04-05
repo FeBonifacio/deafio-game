@@ -4,14 +4,20 @@ import Button from 'react-bootstrap/Button';
 import { handleInputChange, handleSaveAndClose } from '../../services/hooks/useModal';
 import { EditModalProps } from '../../services/types/EditModal';
 import styled from 'styled-components';
-import { useFormValidation } from '../../utils/useFormValidation';
-
 
 const StyledModal = styled(Modal)`
-    @media (max-width: 800px) {
+    .modal-dialog {
+        max-width: 400px;
+        margin: auto;
+    }
+
+    @media (max-width: 576px) {
         .modal-dialog {
-            max-width: 80%;
-            margin: auto;
+            max-width: 90%; 
+            margin: 20px auto; 
+    }
+        .modal-content {
+            border-radius: 0;
         }
     }
 `;
@@ -29,35 +35,36 @@ const EditModal = ({ showModal, handleCloseModal, handleSaveEdit, editedGame, se
                 <Modal.Title>Editar Jogo</Modal.Title>
             </Modal.Header>
             <Modal.Body className="d-flex flex-column align-items-center">
-                <form id="create-game-form" >
+                <form id="create-game-form">
                     <div className="mb-3">
-                        <p>Nome: {editedGame?.nome}</p>
+                        <p style={{ width: '150px' }}>Nome: {editedGame?.nome}</p>
                         {editedGame && (
                             <input type="text" id="nome" name="nome" value={editedGame.nome} onChange={(e) => handleInputChange(e, 'nome', editedGame, setEditedGame)} />
                         )}
                     </div>
                     <div className="mb-3">
-                        <p>Descrição: {editedGame?.descricao}</p>
+                        <p style={{ width: '150px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>Descrição: {editedGame?.descricao}</p>
+                        {/* A entrada abaixo permite que a descrição seja editada */}
                         {editedGame && (
                             <input type="text" id="descricao" name="descricao" value={editedGame.descricao} onChange={(e) => handleInputChange(e, 'descricao', editedGame, setEditedGame)} />
                         )}
                     </div>
                     <div className="mb-3">
-                        <p>Produtora: {editedGame?.produtora}</p>
+                        <p style={{ width: '150px' }}>Produtora: {editedGame?.produtora}</p>
                         {editedGame && (
                             <input type="text" id="produtora" name="produtora" value={editedGame.produtora} onChange={(e) => handleInputChange(e, 'produtora', editedGame, setEditedGame)} />
                         )}
                     </div>
                     <div className="mb-3">
-                        <p>Ano: {editedGame?.ano}</p>
+                        <p style={{ width: '150px' }}>Ano: {editedGame?.ano}</p>
                         {editedGame && (
-                            <input type="text" id="ano" name="ano" value={editedGame.ano} onChange={(e) => handleInputChange(e, 'ano', editedGame, setEditedGame)} />
+                            <input type="number" id="ano" name="ano" value={editedGame.ano} onChange={(e) => handleInputChange(e, 'ano', editedGame, setEditedGame)} />
                         )}
                     </div>
                     <div className="mb-3">
-                        <p>Idade Mínima: {editedGame?.idadeMinima}</p>
+                        <p style={{ width: '150px' }}>Idade Mínima: {editedGame?.idadeMinima}</p>
                         {editedGame && (
-                            <input type="text" id="idadeMinima" name="idadeMinima" value={editedGame.idadeMinima} onChange={(e) => handleInputChange(e, 'idadeMinima', editedGame, setEditedGame)} />
+                            <input type="number" id="idadeMinima" name="idadeMinima" value={editedGame.idadeMinima} onChange={(e) => handleInputChange(e, 'idadeMinima', editedGame, setEditedGame)} />
                         )}
                     </div>
                 </form>
@@ -67,10 +74,10 @@ const EditModal = ({ showModal, handleCloseModal, handleSaveEdit, editedGame, se
                 {isLoading ? (
                     <Button variant="primary" disabled>Salvando...</Button>
                 ) : (
-                    <Button variant="primary" onClick={() => 
+                    <Button variant="primary" onClick={() =>
                         handleSaveAndClose(handleSaveEdit, editedGame, setIsLoading, () => {
-                            reloadPage(); 
-                            handleCloseModal(); 
+                            reloadPage();
+                            handleCloseModal();
                         })}>Salvar Edição</Button>
                 )}
             </Modal.Footer>

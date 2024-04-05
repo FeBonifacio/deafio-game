@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const ContainerDiv = styled.div`
-    height: 81vh;
+    height: 90vh;
     
-
     .error {
         color: red; 
     }

@@ -6,8 +6,11 @@ export const Container = styled.div`
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
+
+    .card-body {
+        height: 300px;
+    }
+
 `;
 
 export const GameDetailsContainer = styled.div`
