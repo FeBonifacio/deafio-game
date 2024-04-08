@@ -1,6 +1,8 @@
 
 # Desafio CRUD de Informações de Jogos
 
+#Link: https://frontend-game-ruddy.vercel.app/
+
 <h2>Este é um projeto fullstack que visa criar um CRUD (Create, Read, Update, Delete)
 para gerenciar informações sobre jogos. O projeto permitirá que os usuários realizem operações 
 básicas de manipulação de dados, como adicionar novos jogos, visualizar informações existentes, 
